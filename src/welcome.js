@@ -11,12 +11,11 @@ export class Welcome {
     constructor(kataService ) {
 
         this.kataService = kataService;
-        this.katas = [{name : "foo"}];
-
+        this.katas = [];
     }
 
     activate() {
-
+        this.katas =  this.kataService.getKatas();
     }
 
 

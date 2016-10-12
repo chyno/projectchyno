@@ -6,6 +6,11 @@ export class KataService {
             {
                 name: "first",
                 description : "Hello WOrld Kata"
-            }];
+            },
+             {
+                name: "second",
+                description : "Hello WOrld Kata 2"
+            }
+        ];
    }
 }
