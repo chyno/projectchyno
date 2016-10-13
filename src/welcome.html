@@ -1,8 +1,6 @@
 <template>
-    <h1>Your Next Challenge...</h1>
-    <p>Choose a Kata to run</p>
-    <ul>
-        <li repeat.for="row of katas" >  ${row.name} </li>
-    </ul>
-
+	<h1>Your Next Challenge...</h1>
+	<template repeat.for="kata of katas">
+		<compose model.bind="kata" view-model="./kata"> </compose>
+	</template>
 </template>
