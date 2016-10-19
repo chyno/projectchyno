@@ -10,12 +10,20 @@ export class Welcome {
         this.kataService = kataService;
         this.katas = [];
         this.cs = codeservice;
+        this.cntl = null;
 
 
     }
 
     attached() {
-        let cntl = this.codeArea;
-        this.cs.setControl(cntl);
+        this.cntl = this.codeArea;
+        this.cs.setControl(this.cntl);
     }
+
+    setCode() {
+
+        let code = "function findSequence(goal) { \n foo; \n bar; ";
+        this.cs.setValue(code);
+    }
+
 }
