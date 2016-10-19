@@ -52,14 +52,18 @@ const coreBundles = {
     'aurelia-templating-binding',
     'aurelia-templating-router',
     'aurelia-templating-resources'
-  ]
+
+  ],
+
 }
 
 const baseConfig = {
   entry: {
+
     'app': [/* this is filled by the aurelia-webpack-plugin */],
     'aurelia-bootstrap': coreBundles.bootstrap,
-    'aurelia': coreBundles.aurelia.filter(pkg => coreBundles.bootstrap.indexOf(pkg) === -1)
+    'aurelia': coreBundles.aurelia.filter(pkg => coreBundles.bootstrap.indexOf(pkg) === -1),
+
   },
   output: {
     path: outDir,

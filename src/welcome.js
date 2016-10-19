@@ -1,17 +1,21 @@
 
-import {inject} from "aurelia-framework";
-import {KataService} from "./service/kata-service";
+import { inject } from "aurelia-framework";
+import { KataService } from "./service/kata-service";
+import { CodeService } from './service/code-service';
 
-@inject(KataService)
+@inject(KataService, CodeService)
 export class Welcome {
 
-    constructor(kataService) {
+    constructor(kataService, codeservice) {
         this.kataService = kataService;
         this.katas = [];
+        this.cs = codeservice;
+
+
     }
 
-    activate() {
-        this.katas =  this.kataService.getKatas();
+    attached() {
+        let cntl = this.codeArea;
+        this.cs.setControl(cntl);
     }
-
 }

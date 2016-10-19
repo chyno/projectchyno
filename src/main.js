@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 
+
 // comment out if you don't want a Promise polyfill (remove also from webpack.common.js)
 import * as Bluebird from 'bluebird';
 Bluebird.config({ warnings: false });

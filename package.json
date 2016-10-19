@@ -26,7 +26,7 @@
     "watch:prod": "npm run build:prod -- --watch",
     "build": "cross-env NODE_ENV=development npm run build:dev",
     "prebuild:dev": "npm run clean:dist",
-    "build:dev": "cross-env NODE_ENV=development npm run webpack -- --progress --profile",
+    "build:dev": "cross-env NODE_ENV=development npm run webpack -- --progress --profile -d",
     "prebuild:prod": "npm run clean:dist",
     "build:prod": "cross-env NODE_ENV=production npm run webpack -- --progress --profile",
     "start": "npm run server:dev",
@@ -35,7 +35,7 @@
     "server:dev:hmr": "npm run server:dev -- --hot",
     "server:prod": "http-server dist --cors",
     "webpack": "cross-env ./node_modules/.bin/webpack",
-    "webpack-dev-server": "cross-env ./node_modules/.bin/webpack-dev-server --port 9001"
+    "webpack-dev-server": "cross-env ./node_modules/.bin/webpack-dev-server --port 9001 -d"
   },
   "repository": {
     "type": "git",
@@ -83,6 +83,7 @@
     "aurelia-templating-router": "^1.0.0",
     "bluebird": "^3.4.1",
     "bootstrap": "^3.3.7",
+    "codemirror": "^5.19.0",
     "font-awesome": "^4.6.3",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.1.0"
