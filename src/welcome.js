@@ -31,6 +31,7 @@ export class Welcome {
         this.kataChosen = true;
         let code = this.favoriteKata.code;
         this.cs.setValue(code);
+
     }
 
      done() {

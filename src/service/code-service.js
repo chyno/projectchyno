@@ -14,7 +14,7 @@ export class CodeService {
         this.editor = null;
     }
 
-
+//Method needs to be called after view model can get reference to DOM object
     setControl(cntl) {
 
         console.log('controls: ' + cntl);
@@ -24,11 +24,15 @@ export class CodeService {
             lineNumbers: true,
             styleActiveLine: true,
             matchBrackets: true,
-            theme: 'blackboard'
+            theme: 'blackboard',
+            autofocus: true
         });
+        CodeMirror.focus();
     }
 
     setValue(code) {
+
         this.editor.getDoc().setValue(code);
+
     }
 }
