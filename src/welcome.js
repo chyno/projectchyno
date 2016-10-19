@@ -11,8 +11,14 @@ export class Welcome {
         this.katas = [];
         this.cs = codeservice;
         this.cntl = null;
+        this.kataChosen = false;
+        this.favoriteKata;
 
+    }
 
+    activate() {
+        this.katas = this.kataService.getKatas();
+        this.favoriteKata = this.katas[0];
     }
 
     attached() {
@@ -22,8 +28,14 @@ export class Welcome {
 
     setCode() {
 
-        let code = "function findSequence(goal) { \n foo; \n bar; ";
+        this.kataChosen = true;
+        let code = this.favoriteKata.code;
         this.cs.setValue(code);
+    }
+
+     done() {
+
+       this.kataChosen = false;
     }
 
 }

@@ -1,5 +1,5 @@
 <template>
-    <h2>${data.name}</h2>
+    <input type="radio" name="katachoice" model.bind="data" checked.bind="$parent.$parent.favoriteKata" />
     <p>${data.description}</p>
-    <label for="txtCode">Code:</label><input id="txtCode" type="text" value.bind="data.code">
+
 </template>
