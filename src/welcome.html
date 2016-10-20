@@ -1,11 +1,43 @@
 <template>
 	<article>
 		<h2>Choose Kata To Run</h2>
-		<label for="kataoptions" repeat.for="kata of katas">
-		<input id="kataoptions"  type="radio" name="katachoice" model.bind="kata" checked.bind="$parent.kataChosen"  />
-		  ${kata.name}</label>
 
-		<p>${favoriteKata.description}</p>
-		<form><textarea id="code" name="code" ref="codeArea"></textarea></form>
+		<div class="funkyradio">
+			<div class="funkyradio-default" repeat.for="kata of katas">
+				<input id="${$index}kataoptions" type="radio" name="katachoice" model.bind="kata" checked.bind="$parent.kataChosen" />
+				<label for="${$index}kataoptions"> ${kata.name}</label>
+			</div>
+				</div>
+
+<div class="container">
+	<div class="row">
+		    <div class="col-md-6">
+					<h4>Code</h4>
+					<p>${kataChosen.description}</p>
+
+		    </div>
+
+
+				<div class="col-md-6">
+					<h4>Unit Tests</h4>
+
+		    </div>
+	</div>
+	 <div class="row">
+		    <div class="col-md-6">
+
+						<form><textarea id="code" name="code" ref="codeArea"></textarea></form>
+		    </div>
+          <div class="col-md-6">
+
+					<form><textarea id="tests" name="tests" ref="testsArea"></textarea></form>
+		    </div>
+
+	 </div>
+</div>
+
+
+
+
 	</article>
 </template>

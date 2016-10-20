@@ -25,14 +25,14 @@ export class Welcome {
     }
 
     attached() {
-        this.cntl = this.codeArea;
-        this.codeservice.setControl(this.cntl);
+
+        this.codeservice.setControls([this.codeArea, this.testsArea] );
 
         if (this.kataChosen)
         {
-             this.codeservice.setValue(this.kataChosen.code);
+            this.codeservice.setCodeValue(this.kataChosen.code);
+          //  this.codeservice.setTestValue('Assert(true == true);');
         }
-
 
         var subscription = this.observerlocator
             .getObserver(this, 'kataChosen')
@@ -41,9 +41,8 @@ export class Welcome {
 
 
     onChange(newValue, oldValue) {
-
         if (newValue) {
-         this.codeservice.setValue(newValue.code);
+         this.codeservice.setCodeValue(newValue.code);
         }
     }
 

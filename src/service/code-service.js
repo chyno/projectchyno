@@ -11,16 +11,25 @@ import 'codemirror/theme/blackboard.css';
 export class CodeService {
 
     constructor() {
-        this.editor = null;
+        this.codeeditor = null;
+         this.testeditor = null;
     }
 
 //Method needs to be called after view model can get reference to DOM object
-    setControl(cntl) {
+    setControls(cntls) {
 
-        console.log('controls: ' + cntl);
+
         //var cm = new CodeMirror();
 
-        this.editor = CodeMirror.fromTextArea(cntl, {
+        this.codeeditor = CodeMirror.fromTextArea(cntls[0], {
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true,
+            theme: 'blackboard',
+            autofocus: true
+        });
+
+         this.testeditor = CodeMirror.fromTextArea(cntls[1], {
             lineNumbers: true,
             styleActiveLine: true,
             matchBrackets: true,
@@ -30,7 +39,11 @@ export class CodeService {
 
     }
 
-    setValue(code) {
-           this.editor.getDoc().setValue(code);
-}
+    setCodeValue(code) {
+        this.codeeditor.getDoc().setValue(code);
+    }
+
+    setTestValue(code) {
+        this.testeditor.getDoc().setValue(code);
+    }
 }
