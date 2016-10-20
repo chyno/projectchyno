@@ -31,7 +31,7 @@ export class Welcome {
         if (this.kataChosen)
         {
             this.codeservice.setCodeValue(this.kataChosen.code);
-          //  this.codeservice.setTestValue('Assert(true == true);');
+            this.codeservice.setTestValue('Assert(true == true);');
         }
 
         var subscription = this.observerlocator
@@ -39,10 +39,10 @@ export class Welcome {
             .subscribe(this.onChange.bind(this));
     }
 
-
     onChange(newValue, oldValue) {
         if (newValue) {
-         this.codeservice.setCodeValue(newValue.code);
+            this.codeservice.setCodeValue(newValue.code);
+          this.codeservice.setTestValue('Assert(true == true);');
         }
     }
 

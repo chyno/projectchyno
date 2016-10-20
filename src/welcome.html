@@ -1,43 +1,43 @@
 <template>
 	<article>
 		<h2>Choose Kata To Run</h2>
-
 		<div class="funkyradio">
 			<div class="funkyradio-default" repeat.for="kata of katas">
 				<input id="${$index}kataoptions" type="radio" name="katachoice" model.bind="kata" checked.bind="$parent.kataChosen" />
 				<label for="${$index}kataoptions"> ${kata.name}</label>
 			</div>
-				</div>
-
-<div class="container">
-	<div class="row">
-		    <div class="col-md-6">
-					<h4>Code</h4>
+		</div>
+<hr/>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
 					<p>${kataChosen.description}</p>
 
-		    </div>
-
-
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-md-6">
-					<h4>Unit Tests</h4>
 
-		    </div>
-	</div>
-	 <div class="row">
-		    <div class="col-md-6">
-
-						<form><textarea id="code" name="code" ref="codeArea"></textarea></form>
-		    </div>
-          <div class="col-md-6">
+					<form><textarea id="code" name="code" ref="codeArea"></textarea></form>
+				</div>
+				<div class="col-md-6">
 
 					<form><textarea id="tests" name="tests" ref="testsArea"></textarea></form>
-		    </div>
+				</div>
 
-	 </div>
-</div>
+			</div>
+			<div class="row" style="padding-top:1em">
+				<div class="col-md-6">
 
+					<button class="btn btn-primary">Save Code</button>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-primary">Run Tests</button>
+					<button class="btn btn-secondary">Save Tests</button>
 
+				</div>
 
-
+			</div>
+		</div>
 	</article>
 </template>
