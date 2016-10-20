@@ -2,41 +2,49 @@
 import { inject } from "aurelia-framework";
 import { KataService } from "./service/kata-service";
 import { CodeService } from './service/code-service';
+import { ObserverLocator } from 'aurelia-binding';  // or 'aurelia-framework'
 
-@inject(KataService, CodeService)
+@inject(KataService, CodeService, ObserverLocator)
 export class Welcome {
 
-    constructor(kataService, codeservice) {
+
+    constructor(kataService, codeservice, observerlocator) {
         this.kataService = kataService;
         this.katas = [];
-        this.cs = codeservice;
+        this.codeservice = codeservice;
         this.cntl = null;
-        this.kataChosen = false;
-        this.favoriteKata;
+        this.kataChosen = null;
+        this.observerlocator = observerlocator;
+        this.bar = '';
 
     }
 
     activate() {
         this.katas = this.kataService.getKatas();
-        this.favoriteKata = this.katas[0];
+        this.kataChosen = this.katas[0];
     }
 
     attached() {
         this.cntl = this.codeArea;
-        this.cs.setControl(this.cntl);
+        this.codeservice.setControl(this.cntl);
+
+        if (this.kataChosen)
+        {
+             this.codeservice.setValue(this.kataChosen.code);
+        }
+
+
+        var subscription = this.observerlocator
+            .getObserver(this, 'kataChosen')
+            .subscribe(this.onChange.bind(this));
     }
 
-    setCode() {
 
-        this.kataChosen = true;
-        let code = this.favoriteKata.code;
-        this.cs.setValue(code);
+    onChange(newValue, oldValue) {
 
-    }
-
-     done() {
-
-       this.kataChosen = false;
+        if (newValue) {
+         this.codeservice.setValue(newValue.code);
+        }
     }
 
 }

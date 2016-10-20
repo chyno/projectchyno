@@ -27,12 +27,10 @@ export class CodeService {
             theme: 'blackboard',
             autofocus: true
         });
-        CodeMirror.focus();
+
     }
 
     setValue(code) {
-
-        this.editor.getDoc().setValue(code);
-
-    }
+           this.editor.getDoc().setValue(code);
+}
 }

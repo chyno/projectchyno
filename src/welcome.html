@@ -1,16 +1,11 @@
 <template>
 	<article>
-		<div show.bind="!kataChosen">
-			<h2>Choose Kata To Run</h2>
-			<template repeat.for="kata of katas">
-				<compose model.bind="kata" view-model="./kata"> </compose>
-			</template>
-			<button click.trigger="setCode()">Add Code</button>
-		</div>
-		<div>
-			<form><textarea id="code" name="code" ref="codeArea"></textarea></form>
-			<button click.trigger="done()">Done</button>
-		</div>
-	</article>
+		<h2>Choose Kata To Run</h2>
+		<label for="kataoptions" repeat.for="kata of katas">
+		<input id="kataoptions"  type="radio" name="katachoice" model.bind="kata" checked.bind="$parent.kataChosen"  />
+		  ${kata.name}</label>
 
+		<p>${favoriteKata.description}</p>
+		<form><textarea id="code" name="code" ref="codeArea"></textarea></form>
+	</article>
 </template>
