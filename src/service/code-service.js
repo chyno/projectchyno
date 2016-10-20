@@ -12,14 +12,13 @@ export class CodeService {
 
     constructor() {
         this.codeeditor = null;
-         this.testeditor = null;
+        this.testeditor = null;
     }
 
 //Method needs to be called after view model can get reference to DOM object
     setControls(cntls) {
 
-
-        //var cm = new CodeMirror();
+  //var cm = new CodeMirror();
 
         this.codeeditor = CodeMirror.fromTextArea(cntls[0], {
             lineNumbers: true,
@@ -43,7 +42,7 @@ export class CodeService {
         this.codeeditor.getDoc().setValue(code);
     }
 
-    setTestValue(code) {
-        this.testeditor.getDoc().setValue(code);
+    setTestValue(tcode) {
+        this.testeditor.getDoc().setValue(tcode);
     }
 }
