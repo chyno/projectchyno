@@ -20,8 +20,9 @@ export class Welcome {
     }
 
     activate() {
-         this.kataService.getKatasCallBack(this.setKatas);
-        //this.katas = this.kataService.getKatas();
+         //this.kataService.getKatasCallBack(this.setKatas);
+        this.katas = this.kataService.getKatas();
+        this.kataChosen = this.katas[0];
         //
     }
 

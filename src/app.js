@@ -1,4 +1,3 @@
-var Gun = require('gun/gun');
 
 export class App {
   configureRouter(config, router) {
