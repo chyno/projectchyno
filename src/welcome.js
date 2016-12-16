@@ -22,14 +22,11 @@ export class Welcome {
     activate() {
          //this.kataService.getKatasCallBack(this.setKatas);
         this.katas = this.kataService.getKatas();
-        this.kataChosen = this.katas[0];
+        this.kataChosen = null;
         //
     }
 
-    setKatas(kts) {
-        this.katas = kts;
-        this.kataChosen = this.katas[0];
-    }
+
 
     attached() {
 
@@ -38,7 +35,7 @@ export class Welcome {
         if (this.kataChosen)
         {
             this.codeservice.setCodeValue(this.kataChosen.code);
-            this.codeservice.setTestValue('Assert(true == true);');
+            this.codeservice.setTestValue(this.kataChosen.assertion);
         }
 
         var subscription = this.observerlocator
@@ -49,7 +46,7 @@ export class Welcome {
     onChange(newValue, oldValue) {
         if (newValue) {
             this.codeservice.setCodeValue(newValue.code);
-          this.codeservice.setTestValue('Assert(true == true);');
+          this.codeservice.setTestValue(this.kataChosen.assertion);
         }
     }
 
